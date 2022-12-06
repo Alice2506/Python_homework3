@@ -8,16 +8,23 @@
 
 result_sum = 0
 stop_prog = False
-print('Введите числа через пробел или клавишу "J" для выхода: ')
-user_numbers = input().split(' ')
-for i in range(len(user_numbers)):
-    if user_numbers[i] == 'j':
-        print('Конец программы')
-        break
-    else:
-        user_numbers = list(map(int, user_numbers))
-        transitional_sum = sum(user_numbers)
-        print(transitional_sum)
+while stop_prog == False:
+    print('Введите числа через пробел или клавишу "j" для выхода: ')
+    user_numbers = input().split(' ')
+    transitional_sum = 0
+    for el in range(len(user_numbers)):
+        if user_numbers[el] == 'j' or user_numbers[el] == 'J':
+            stop_prog = True
+            break
+        else:
+            user_numbers = list(map(int, user_numbers))
+            transitional_sum = sum(user_numbers)
+            print(transitional_sum)
+    result_sum += transitional_sum
+    print(f'Ваш текущий итог: {result_sum}')
+print(f'Ваша итоговая сумма: {result_sum}')
+
+
 
 
 
